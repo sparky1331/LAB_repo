@@ -1,2 +1,2 @@
 # LAB_repo
-repository fo labs
+repository for cpp labs
