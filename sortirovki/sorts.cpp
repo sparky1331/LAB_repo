@@ -43,6 +43,28 @@ void puzyrek(int n, int arr[]) {
     }
 }
 
+void vybor(int n, int arr[]) {
+
+    for (int i = 0; i < n - 1; i++) {
+
+        int min_id = i;
+
+        for (int j = i + 1; j < n; j++) {
+
+            if (arr[j] < arr[min_id])
+
+                min_id = j;
+
+        }
+
+        if (min_id != i)
+
+            swap(min_id, i, arr);
+
+    }
+
+}
+
 int main() {
  
     int n, k;
@@ -61,7 +83,8 @@ int main() {
     
     std::cout << "" << std::endl;
 
-    puzyrek(n, arr);
+    // choose sort alg:
+    vybor(n, arr);
 
     for (int i = 0; i < n; i++) {
 
