@@ -65,6 +65,25 @@ void vybor(int n, int arr[]) {
 
 }
 
+void vstavka(int n, int arr[]) {
+
+    for (int i = 0; i < n - 1; i++) {
+
+        int k = i;
+
+        while ((arr[k + 1] < arr[k]) and (k >= 0)) {
+
+            swap(k + 1, k, arr);
+            --k;
+
+        }
+
+
+    }
+
+}
+
+
 int main() {
  
     int n, k;
@@ -84,7 +103,7 @@ int main() {
     std::cout << "" << std::endl;
 
     // choose sort alg:
-    vybor(n, arr);
+    vstavka(n, arr);
 
     for (int i = 0; i < n; i++) {
 
