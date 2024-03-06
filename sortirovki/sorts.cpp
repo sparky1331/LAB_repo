@@ -83,6 +83,72 @@ void vstavka(int n, int arr[]) {
 
 }
 
+// sorts the array from n_1'th to n_2'th (arr[n_1:n_2]) elements. If you want to sort whole array: n_1 = 0, n_2 = n, where n is the length of the array.
+void qsort(int n_1, int n_2 , int arr[]) {
+
+    if (n_2 - n_1 > 2) {
+
+        int tmp = (n_1 + n_2) / 2;
+        // int tmp_val = arr[tmp];
+
+        
+        int zxc[n_2-n_1];
+        for (int y = 0; y < n_2 - n_1 + 1; y++)
+            zxc[y] = arr[n_1 + y];
+
+
+
+        for (int i = n_1; i < n_2; i++) {
+
+            if ((arr[i] < arr[tmp]) and (i > tmp)) {
+
+                for (int j = i; j > tmp; --j)
+                {
+                    swap(j, j - 1, arr);
+
+                    for (int y = 0; y < n_2 - n_1 + 1; y++)
+                        zxc[y] = arr[n_1 + y];
+
+                }
+                // i++;
+                tmp++;
+
+            }
+
+            if ((arr[i] > arr[tmp]) and (i < tmp)) {
+
+                for (int j = i; j < tmp; j++)
+                {
+                 
+                    swap(j, j + 1, arr);
+                    
+                    for (int y = 0; y < n_2 - n_1 + 1; y++)
+                        zxc[y] = arr[n_1 + y];
+
+                }
+                --i;
+                --tmp;
+            
+            }
+
+        }
+
+    qsort(n_1, tmp, arr);
+    qsort(tmp, n_2, arr);
+    
+    }
+
+    if (n_2 - n_1 == 2) {
+
+        if (arr[n_1] > arr[n_1 + 1])
+
+            swap(n_1, n_2 + 1, arr);
+
+    }
+
+
+}
+
 
 int main() {
  
@@ -103,7 +169,7 @@ int main() {
     std::cout << "" << std::endl;
 
     // choose sort alg:
-    vstavka(n, arr);
+    qsort(0, n, arr);
 
     for (int i = 0; i < n; i++) {
 
@@ -113,3 +179,4 @@ int main() {
     
     std::cout << "" << std::endl;
 }
+
