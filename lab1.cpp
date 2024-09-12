@@ -3,7 +3,8 @@
 #include <random>
 #include <fstream>
 
-// func which generate random number in given range
+// func which generate an array of rand id's for given arr lenght
+
 // void rand(int k, int arr[], int num_of_its) {
 
 //   unsigned seed = 1001; 
@@ -73,6 +74,8 @@ void alg2(int n, int arr[], int arr_of_target_id[], int num_of_its) // binary se
 
 }
 
+// Code for average time:
+
 // int main()
 // {
 //   std::ofstream out;
@@ -112,6 +115,9 @@ void alg2(int n, int arr[], int arr_of_target_id[], int num_of_its) // binary se
 //   return 0;
 // }
 
+
+
+
 // code for bad cases:
 
 int main()
@@ -129,7 +135,7 @@ int main()
   {
     
     for (int i = 0; i < num_of_iters; i++)
-      arr_of_rand_id[i] = 500000;
+      arr_of_rand_id[i] = -1;
     
     for (int i = 0; i < val_of_search; i++)
       arr_n[i] = i;
